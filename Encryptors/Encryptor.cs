@@ -13,14 +13,10 @@ namespace Encryptors
 {
     public partial class Encryptor : Form
     {
-        private EncryptionManager _encryptionManager;
-
         public Encryptor()
         {
             InitializeComponent();
             CenterToScreen();
-
-            _encryptionManager = new EncryptionManager();
         }
 
         private void Encryptor_Load(object sender, EventArgs e)
@@ -31,9 +27,17 @@ namespace Encryptors
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
             EncryptingMethods selectedEnum;
-            Enum.TryParse<EncryptingMethods>(cmbEncryption.SelectedValue.ToString(), out selectedEnum);
+            Enum.TryParse(cmbEncryption.SelectedValue.ToString(), out selectedEnum);
 
-            txtResult.Text = _encryptionManager.EncryptText(txtTextToEncrypt.Text, selectedEnum);
+            txtResult.Text = App.EncryptionManager.EncryptText(txtText.Text, selectedEnum);
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            EncryptingMethods selectedEnum;
+            Enum.TryParse(cmbEncryption.SelectedValue.ToString(), out selectedEnum);
+
+            txtResult.Text = App.EncryptionManager.DecryptText(txtText.Text, selectedEnum);
         }
     }
 }

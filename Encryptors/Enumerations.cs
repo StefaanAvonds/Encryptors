@@ -6,6 +6,8 @@
     public enum EncryptingMethods
     {
         SHA1,
-        MD5
+        MD5,
+        //Rijndael,
+        AES
     }
 }

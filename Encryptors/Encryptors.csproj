@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -77,6 +77,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Encryptions\AESEncryptor.cs" />
+    <Compile Include="Encryptions\RijndaelEncryptor.cs" />
+    <Compile Include="Interfaces\IDecrypt.cs" />
     <Compile Include="Managers\EncryptionManager.cs" />
     <Compile Include="Encryptions\MD5Encryptor.cs" />
     <Compile Include="Encryptions\SHA1Encryptor.cs" />

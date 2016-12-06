@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Encryptor));
             this.groupRequest = new System.Windows.Forms.GroupBox();
-            this.txtTextToEncrypt = new System.Windows.Forms.TextBox();
+            this.txtText = new System.Windows.Forms.TextBox();
             this.groupEncryptor = new System.Windows.Forms.GroupBox();
+            this.btnDecrypt = new System.Windows.Forms.Button();
             this.btnEncrypt = new System.Windows.Forms.Button();
             this.lblEncryption = new System.Windows.Forms.Label();
             this.cmbEncryption = new System.Windows.Forms.ComboBox();
@@ -46,41 +47,51 @@
             // 
             this.groupRequest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupRequest.Controls.Add(this.txtTextToEncrypt);
+            this.groupRequest.Controls.Add(this.txtText);
             this.groupRequest.Location = new System.Drawing.Point(12, 12);
             this.groupRequest.Name = "groupRequest";
             this.groupRequest.Size = new System.Drawing.Size(612, 279);
             this.groupRequest.TabIndex = 0;
             this.groupRequest.TabStop = false;
-            this.groupRequest.Text = "Text to encrypt";
+            this.groupRequest.Text = "Text to encrypt / decrypt";
             // 
-            // txtTextToEncrypt
+            // txtText
             // 
-            this.txtTextToEncrypt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTextToEncrypt.Location = new System.Drawing.Point(6, 21);
-            this.txtTextToEncrypt.Multiline = true;
-            this.txtTextToEncrypt.Name = "txtTextToEncrypt";
-            this.txtTextToEncrypt.Size = new System.Drawing.Size(600, 252);
-            this.txtTextToEncrypt.TabIndex = 0;
+            this.txtText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtText.Location = new System.Drawing.Point(3, 18);
+            this.txtText.Multiline = true;
+            this.txtText.Name = "txtText";
+            this.txtText.Size = new System.Drawing.Size(606, 258);
+            this.txtText.TabIndex = 0;
             // 
             // groupEncryptor
             // 
+            this.groupEncryptor.Controls.Add(this.btnDecrypt);
             this.groupEncryptor.Controls.Add(this.btnEncrypt);
             this.groupEncryptor.Controls.Add(this.lblEncryption);
             this.groupEncryptor.Controls.Add(this.cmbEncryption);
             this.groupEncryptor.Location = new System.Drawing.Point(12, 297);
             this.groupEncryptor.Name = "groupEncryptor";
-            this.groupEncryptor.Size = new System.Drawing.Size(612, 64);
+            this.groupEncryptor.Size = new System.Drawing.Size(612, 89);
             this.groupEncryptor.TabIndex = 1;
             this.groupEncryptor.TabStop = false;
-            this.groupEncryptor.Text = "Encryptor";
+            this.groupEncryptor.Text = "Encryptor / Decryptor";
+            // 
+            // btnDecrypt
+            // 
+            this.btnDecrypt.Location = new System.Drawing.Point(475, 55);
+            this.btnDecrypt.Name = "btnDecrypt";
+            this.btnDecrypt.Size = new System.Drawing.Size(131, 28);
+            this.btnDecrypt.TabIndex = 2;
+            this.btnDecrypt.Text = "Decrypt";
+            this.btnDecrypt.UseVisualStyleBackColor = true;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // btnEncrypt
             // 
-            this.btnEncrypt.Location = new System.Drawing.Point(475, 21);
+            this.btnEncrypt.Location = new System.Drawing.Point(338, 55);
             this.btnEncrypt.Name = "btnEncrypt";
-            this.btnEncrypt.Size = new System.Drawing.Size(131, 24);
+            this.btnEncrypt.Size = new System.Drawing.Size(131, 28);
             this.btnEncrypt.TabIndex = 1;
             this.btnEncrypt.Text = "Encrypt";
             this.btnEncrypt.UseVisualStyleBackColor = true;
@@ -92,7 +103,7 @@
             this.lblEncryption.Location = new System.Drawing.Point(6, 24);
             this.lblEncryption.Name = "lblEncryption";
             this.lblEncryption.Size = new System.Drawing.Size(79, 17);
-            this.lblEncryption.TabIndex = 2;
+            this.lblEncryption.TabIndex = 3;
             this.lblEncryption.Text = "Encryption:";
             // 
             // cmbEncryption
@@ -101,7 +112,7 @@
             this.cmbEncryption.FormattingEnabled = true;
             this.cmbEncryption.Location = new System.Drawing.Point(118, 21);
             this.cmbEncryption.Name = "cmbEncryption";
-            this.cmbEncryption.Size = new System.Drawing.Size(351, 24);
+            this.cmbEncryption.Size = new System.Drawing.Size(488, 24);
             this.cmbEncryption.TabIndex = 0;
             // 
             // groupResult
@@ -109,22 +120,21 @@
             this.groupResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupResult.Controls.Add(this.txtResult);
-            this.groupResult.Location = new System.Drawing.Point(12, 367);
+            this.groupResult.Location = new System.Drawing.Point(12, 392);
             this.groupResult.Name = "groupResult";
-            this.groupResult.Size = new System.Drawing.Size(612, 272);
+            this.groupResult.Size = new System.Drawing.Size(612, 247);
             this.groupResult.TabIndex = 2;
             this.groupResult.TabStop = false;
             this.groupResult.Text = "Result";
             // 
             // txtResult
             // 
-            this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResult.Location = new System.Drawing.Point(6, 21);
+            this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResult.Location = new System.Drawing.Point(3, 18);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(600, 245);
+            this.txtResult.Size = new System.Drawing.Size(606, 226);
             this.txtResult.TabIndex = 0;
             // 
             // Encryptor
@@ -153,13 +163,14 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupRequest;
-        private System.Windows.Forms.TextBox txtTextToEncrypt;
+        private System.Windows.Forms.TextBox txtText;
         private System.Windows.Forms.GroupBox groupEncryptor;
         private System.Windows.Forms.Label lblEncryption;
         private System.Windows.Forms.ComboBox cmbEncryption;
         private System.Windows.Forms.GroupBox groupResult;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Button btnEncrypt;
+        private System.Windows.Forms.Button btnDecrypt;
     }
 }
 
