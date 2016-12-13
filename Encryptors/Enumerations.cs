@@ -8,6 +8,7 @@
         SHA1,
         MD5,
         //Rijndael,
-        AES
+        AES,
+        RFC2898
     }
 }

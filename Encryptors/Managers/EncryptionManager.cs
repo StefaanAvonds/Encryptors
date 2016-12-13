@@ -28,6 +28,7 @@ namespace Encryptors.Managers
             _possibleEncryptions.Add(EncryptingMethods.MD5, new MD5Encryptor());
             //_possibleEncryptions.Add(EncryptingMethods.Rijndael, new RijndaelEncryptor());
             _possibleEncryptions.Add(EncryptingMethods.AES, new AESEncryptor());
+            _possibleEncryptions.Add(EncryptingMethods.RFC2898, new RFC2898Encryptor());
         }
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace Encryptors.Managers
         {
             //_possibleDecryptions.Add(EncryptingMethods.Rijndael, new RijndaelEncryptor());
             _possibleDecryptions.Add(EncryptingMethods.AES, new AESEncryptor());
+            _possibleDecryptions.Add(EncryptingMethods.RFC2898, new RFC2898Encryptor());
         }
 
         /// <summary>
